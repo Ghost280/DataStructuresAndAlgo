@@ -1,0 +1,23 @@
+pipeline {
+    agent { dockerfile true }
+
+    stages {
+        stage('Build') {
+            steps {
+                checkout scm
+                sh 'echo customVar = $customVar'
+                
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
